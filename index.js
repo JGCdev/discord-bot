@@ -3,9 +3,10 @@ const fs = require('fs');
 const TOKEN = process.env.TOKEN;
 const PREFIX = process.env.PREFIX;
 const Discord = require('discord.js');
+const Canvas = require('canvas');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-const Canvas = require('canvas');
+
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -13,10 +14,8 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-client.login(TOKEN);
-
 client.once('ready', () => {
-	console.log('Bot conectado y listo para operar!');
+	console.log('Bot conectado!');
 });
 
 // Comandos de texto
@@ -29,7 +28,13 @@ client.on('message', message => {
 	if (command === 'ayuda') {
 		client.commands.get('ayuda').execute(message, args);
 	} else if (command === 'sugerencia') {
-		client.commands.get('sugerencia').execute(message, args);
+		client.commands.get('sugerencia').execute(message, client,  args);
+	} else if (command === ''){
+		message.channel.send('No has introducido ningún comando después de mi llamada, comandos disponibles:');
+		client.commands.get('ayuda').execute(message, args);
+	} else {
+		message.channel.send('El comando introducido no se encuentra en mi base de datos, adjunto los comandos disponibles:');
+		client.commands.get('ayuda').execute(message, args);
 	}
 });
 
@@ -80,3 +85,5 @@ const applyText = (canvas, text) => {
 
 	return ctx.font;
 };
+
+client.login(TOKEN);
