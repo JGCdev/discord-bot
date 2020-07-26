@@ -4,5 +4,5 @@ Playing with discord.js and node
 
 ## Requirements
 
-- [Node.js](http://nodejs.org/)
+- [Node.js - 12+](http://nodejs.org/)
 - [Discord](https://discordapp.com/) 
