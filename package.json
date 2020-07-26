@@ -9,7 +9,8 @@
   "author": "Jesús Giménez",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.5.1",
+    "canvas": "^2.6.1",
+    "discord.js": "^12",
     "dotenv": "^8.2.0"
   }
 }
