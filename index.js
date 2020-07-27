@@ -25,11 +25,14 @@ client.on('message', message => {
 	const args = message.content.slice(PREFIX.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 
+	// Comandos
 	if (command === 'ayuda') {
 		client.commands.get('ayuda').execute(message, args);
 	} else if (command === 'sugerencia') {
 		client.commands.get('sugerencia').execute(message, client,  args);
-	} else if (command === ''){
+	} else if (command === 'ip') {
+		client.commands.get('ip').execute(message, args);
+	} else if (command === ''){ // Comandos por defecto
 		message.channel.send('No has introducido ningún comando después de mi llamada, comandos disponibles:');
 		client.commands.get('ayuda').execute(message, args);
 	} else {
