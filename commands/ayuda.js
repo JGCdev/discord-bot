@@ -14,6 +14,10 @@ module.exports = {
 				value: "Crea tu sugerencia en cualquier canal y yo me encargaré de ordenarla"
 			  },
 			  {
+				name: "!bot ip",
+				value: "Instrucciones de acceso al servidor"
+			  },
+			  {
 				name: "!bot donacion",
 				value: "Relacionado con donaciones"
 			  }
