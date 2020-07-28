@@ -80,7 +80,7 @@ client.on('guildMemberAdd', async member => {
 
 	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
 
-	channel.send(`${member} acaba de llegar a Pecado City! 👋`, attachment);
+	channel.send(`${member} acaba de llegar a 𝓟𝓮𝓬𝓪𝓭𝓸 𝓒𝓲𝓽𝔂! 👋`, attachment);
 });
 
 const applyText = (canvas, text) => {
