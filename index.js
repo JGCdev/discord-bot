@@ -43,7 +43,7 @@ client.on('message', message => {
 
 // Evento entrada usuarios
 client.on('guildMemberAdd', async member => {
-	const channel = member.guild.channels.cache.find(ch => ch.name === 'bienvenida');
+	const channel = member.guild.channels.cache.find(ch => ch.name === '🖐┃bienvenida');
 	if (!channel) return;
 
 	const canvas = Canvas.createCanvas(700, 250);
@@ -52,8 +52,6 @@ client.on('guildMemberAdd', async member => {
 	const background = await Canvas.loadImage('./img/bg.png');
 	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-	// ctx.shadowColor = '#d53';
-	// ctx.shadowBlur = 20;
 	ctx.lineJoin = 'bevel';
 	ctx.lineWidth = 10;
 	ctx.strokeStyle = '#fff';
@@ -88,9 +86,8 @@ client.on('guildMemberAdd', async member => {
 const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
 	let fontSize = 70;
-
 	do {
-		ctx.font = `${fontSize -= 10}px sans-serif`;
+		ctx.font = `${fontSize -= 10}px Impact`;
 	} while (ctx.measureText(text).width > canvas.width - 300);
 
 	return ctx.font;
