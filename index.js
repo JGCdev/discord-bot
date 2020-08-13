@@ -30,6 +30,8 @@ client.on('message', message => {
 		client.commands.get('ayuda').execute(message, args);
 	} else if (command === 'sugerencia') {
 		client.commands.get('sugerencia').execute(message, client,  args);
+	} else if (command === 'server') {
+		client.commands.get('server').execute(message, args);
 	} else if (command === 'ip') {
 		client.commands.get('ip').execute(message, args);
 	} else if (command === ''){ // Comandos por defecto
@@ -43,9 +45,10 @@ client.on('message', message => {
 
 // Evento entrada usuarios
 client.on('guildMemberAdd', async member => {
-	const channel = member.guild.channels.cache.find(ch => ch.name === '🖐┃bienvenida');
+	console.log('1- entra alguien');
+	const channel = member.guild.channels.cache.find(ch => ch.id === '733800475966832723');
 	if (!channel) return;
-
+	console.log('2- saludamos');
 	const canvas = Canvas.createCanvas(700, 250);
 	const ctx = canvas.getContext('2d');
 
